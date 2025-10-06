@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  be1:
+    build: .
+    container_name: be1-container
+    ports:
+      - "3300:3100"
+    environment:
+      - NODE_ENV=production
+    restart: always
