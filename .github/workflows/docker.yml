@@ -45,9 +45,9 @@ jobs:
           echo "Starting deploy"
           echo "${{ secrets.SERVER_SSH_KEY }}" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} '
-            docker pull huythanh1308bn/nestjs-app:latest &&
-            docker stop nestjs || true &&
-            docker rm nestjs || true &&
-            docker run -d -p 3300:3100 --name nestjs huythanh1308bn/nestjs-app:latest
+            sudo docker pull huythanh1308bn/nestjs-app:latest &&
+            sudo docker stop nestjs || true &&
+            sudo docker rm nestjs || true &&
+            sudo docker run -d -p 3300:3100 --name nestjs huythanh1308bn/nestjs-app:latest
           '
           echo "Deploy Successful"
